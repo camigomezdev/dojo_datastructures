@@ -1,0 +1,24 @@
+[__main__][2023-05-26 12:34:56][ERROR][main][main][59]: Invalid choice a. Please try again.
+
+[__main__][2023-05-26 12:34:57][ERROR][main][main][59]: Invalid choice  . Please try again.
+
+[__main__][2023-05-26 12:34:58][ERROR][main][main][59]: Invalid choice .. Please try again.
+
+[reports.utils][2023-05-26 12:35:04][ERROR][utils][print_submenu][46]: Invalid choice b. Please try again.
+
+[reports.utils][2023-05-26 12:35:05][ERROR][utils][print_submenu][46]: Invalid choice  . Please try again.
+
+[reports.utils][2023-05-26 12:35:06][ERROR][utils][print_submenu][46]: Invalid choice .. Please try again.
+
+[reports.utils][2023-05-26 12:35:14][ERROR][utils][print_submenu][46]: Invalid choice c. Please try again.
+
+[reports.utils][2023-05-26 12:35:15][ERROR][utils][print_submenu][46]: Invalid choice  . Please try again.
+
+[reports.utils][2023-05-26 12:35:16][ERROR][utils][print_submenu][46]: Invalid choice .. Please try again.
+
+[reports.report_generator][2023-05-26 12:35:22][ERROR][report_generator][generate_age_report][90]: Invalid age. Please enter a valid age.
+
+[reports.report_generator][2023-05-26 12:35:25][ERROR][report_generator][generate_age_report][90]: Invalid age. Please enter a valid age.
+
+[reports.report_generator][2023-05-26 12:35:27][ERROR][report_generator][generate_age_report][90]: Invalid age. Please enter a valid age.
+
