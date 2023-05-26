@@ -10,6 +10,7 @@ ENCODING: str = "UTF-8"
 PROJECT_NAME: str = "dojo_datastructures"
 HEADER: list[str] = ["nombre", "apellido", "ciudad", "pais", "edad", "carrera"]
 
+
 @with_logging
 def filter_students(
     students: list[dict[str, Any]], key: str, value: Any
