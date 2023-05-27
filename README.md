@@ -34,7 +34,3 @@ This Python script allows you to generate student reports based on data from a C
 ## Generated Reports
 
 The script generates reports in CSV format. Each report corresponds to the selected option and contains relevant student information based on the chosen criteria.
-
-## Contributing
-
-Contributions to this script are welcome! If you have any suggestions, bug reports, or feature requests, please feel free to open an issue or submit a pull request on the GitHub repository.
