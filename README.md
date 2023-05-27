@@ -1,27 +1,40 @@
-# Dojo Estructuras de datos
+# Dojo Data Structures
 
-## Ejercicio Práctico
+## Practical exercise
 
-El objetivo de este ejercicio es practicar diferentes conceptos y técnicas de programación relacionadas con la manipulación de datos CSV utilizando list comprehension, dict comprehension, set comprehension, iterators, iterables, generators y corrutinas.
+# Student Report Generation Script
 
-El archivo CSV proporcionado contiene información de estudiantes, incluyendo su nombre, apellido, ciudad, país, edad y carrera universitaria. Se deben realizar las siguientes tareas:
+This Python script allows you to generate student reports based on data from a CSV file. It provides a menu-driven interface with various options for querying and analyzing the student data. This script is specifically designed as a practical exercise for Dojo Data Structure.
 
-1. Leer el archivo CSV y cargar los datos en una estructura adecuada.
+## Prerequisites
 
-2. Crea un menú donde permita al usuario consultar la siguiente información generando un reporte en un archivo nuevo:
-	- Obtener todos los estudiantes que pertenezcan a una ciudad dada.
-	- Obtener todos los estudiantes que vivan en un país dado.
-	- Obtener todos los estudiantes que estén dentro del rango de edades dado.
-	- Obtener todas las ciudades de residencia de los estudiantes.
-	- Identificar la edad promedio por carrera.
-	- Indicar por carrera si el estudiante está por encima o por debajo del promedio de edad.
-	- Agrupa los estudiantes en diferentes rangos de edad (18-25, 26-35, mayores de 35).
-	- Identifica la ciudad que tienen la mayor variedad de carreras universitarias entre los estudiantes.
+- Python 3.11
+- CSV file named `data.csv` containing student data with columns: `nombre`, `apellido`, `ciudad`, `pais`, `edad`, and `carrera`
 
-Nota: Puedes agrega cualquier dato adicional que quieras al reporte.
+## Usage
 
-Es importante utilizar las herramientas adecuadas de Python, como la biblioteca `csv`, para leer y manipular los datos del archivo CSV. Además, se deben aplicar las técnicas y conceptos mencionados para practicar y demostrar comprensión de los mismos.
+1. Place the `data.csv` file in the same directory as the script file, `report.py`.
+2. Run the script using Python 3.11: `python3.11 report.py`
+3. The script will display a menu with options. Enter the desired option number to perform the corresponding action.
+4. Follow the prompts to input any required information, such as city, country, or age range.
+5. Reports will be generated as separate CSV files, providing relevant information based on the selected options.
 
-El ejercicio tiene como objetivo reforzar el uso y la combinación de estas técnicas para manipular y analizar datos de manera eficiente y elegante.
+## Options
 
-¡Diviértete practicando y explorando las diferentes técnicas y conceptos de programación relacionados con la manipulación de datos y diferentes estructuras de datos!
+1. Get all students from a given city
+2. Get all students from a given country
+3. Get all students within an age range
+4. Get all cities of residence of the students
+5. Identify the average age per major
+6. Indicate for each major if the student is above or below the average age
+7. Group the students into different age ranges
+8. Identify the city with the highest variety of majors among the students
+9. Exit
+
+## Generated Reports
+
+The script generates reports in CSV format. Each report corresponds to the selected option and contains relevant student information based on the chosen criteria.
+
+## Contributing
+
+Contributions to this script are welcome! If you have any suggestions, bug reports, or feature requests, please feel free to open an issue or submit a pull request on the GitHub repository.
