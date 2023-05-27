@@ -16,10 +16,11 @@ logger: logging.Logger = logging.getLogger(__name__)
 class Student:
     """A class to represent the Student data."""
 
-    def __init__(self, csv_file: str):
+    def __init__(self, csv_file: str = "data.csv"):
         """
         Constructs all the necessary attributes for the Student object.
-        :param csv_file: path to the csv file
+        :param csv_file: The name to the csv file. The default is
+         data.csv
         :type csv_file: str
         """
         self.csv_file: str = csv_file
@@ -35,20 +36,24 @@ class Student:
         students: list[dict[str, Any]] = []
         file_path: str = os.path.join(
             os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
-            self.csv_file.replace("/", "\\"))
-        with open(file_path, "r", encoding=ENCODING) as file:
-            reader = csv.DictReader(file)
-            student: dict[str, Any]
-            for student in reader:
-                try:
-                    age: int = int(student["edad"])
-                    if age > 0:
-                        student["edad"] = age
-                        students.append(student)
-                    else:
-                        logger.error(VALID_AGE, age)
-                        raise ValidationError(VALID_AGE)
-                except ValueError as exc:
-                    logger.error(NOT_NUMBER)
-                    raise ValidationError(NOT_NUMBER) from exc
+            "data", "raw", self.csv_file)
+        try:
+            with open(file_path, "r", encoding=ENCODING) as file:
+                reader = csv.DictReader(file)
+                student: dict[str, Any]
+                for student in reader:
+                    try:
+                        age: int = int(student["edad"])
+                        if age > 0:
+                            student["edad"] = age
+                            students.append(student)
+                        else:
+                            logger.error(VALID_AGE, age)
+                            raise ValidationError(VALID_AGE)
+                    except ValueError as exc:
+                        logger.error(NOT_NUMBER)
+                        raise ValidationError(NOT_NUMBER) from exc
+        except FileNotFoundError:
+            logger.error("Data file not found at %s. Please check the"
+                         " location of your data file.", file_path)
         return students

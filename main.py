@@ -31,7 +31,7 @@ def main() -> None:
     :return: None
     :rtype: NoneType
     """
-    student: Student = Student("data/raw/data.csv")
+    student: Student = Student()
     students: list[dict[str, Any]] = student.load_data()
     while True:
         print_menu()
