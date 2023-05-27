@@ -1,5 +1,6 @@
 import csv
 
+
 def load_data():
     """
     Load student data from the CSV file.
@@ -13,6 +14,7 @@ def load_data():
         for row in csv_reader:
             data.append(row)
     return data
+
 
 def generate_report(data):
     """
@@ -43,18 +45,22 @@ def generate_report(data):
 
         if option == "1":
             city = input("Enter the city: ")
-            students_city = [student for student in data if student['ciudad'] == city]
+            students_city = [
+                student for student in data if student['ciudad'] == city]
             generate_students_report(students_city, "students_city.csv")
             print("Report generated: students_city.csv\n")
         elif option == "2":
             country = input("Enter the country: ")
-            students_country = [student for student in data if student['pais'] == country]
+            students_country = [
+                student for student in data if student['pais'] == country]
             generate_students_report(students_country, "students_country.csv")
             print("Report generated: students_country.csv\n")
         elif option == "3":
             age_range = input("Enter the age range (e.g., 18-25): ")
             age_min, age_max = map(int, age_range.split('-'))
-            students_age = [student for student in data if age_min <= int(student['edad']) <= age_max]
+            students_age = [
+                student for student in data if age_min <= int(
+                    student['edad']) <= age_max]
             generate_students_report(students_age, "students_age.csv")
             print("Report generated: students_age.csv\n")
         elif option == "4":
@@ -72,7 +78,8 @@ def generate_report(data):
                     average_age_major[major]['sum_ages'] += age
                     average_age_major[major]['num_students'] += 1
                 else:
-                    average_age_major[major] = {'sum_ages': age, 'num_students': 1}
+                    average_age_major[major] = {
+                        'sum_ages': age, 'num_students': 1}
             print("Average age per major:")
             for major, age_data in average_age_major.items():
                 average = age_data['sum_ages'] / age_data['num_students']
@@ -87,17 +94,20 @@ def generate_report(data):
                     average_age_major[major]['sum_ages'] += age
                     average_age_major[major]['num_students'] += 1
                 else:
-                    average_age_major[major] = {'sum_ages': age, 'num_students': 1}
+                    average_age_major[major] = {
+                        'sum_ages': age, 'num_students': 1}
             print("Age indicator per major:")
             for student in data:
                 major = student['carrera']
                 age = int(student['edad'])
-                average = average_age_major[major]['sum_ages'] / average_age_major[major]['num_students']
+                average = average_age_major[major]['sum_ages'] / \
+                    average_age_major[major]['num_students']
                 if age > average:
                     status = "above"
                 else:
                     status = "below"
-                print(f"{student['nombre']} {student['apellido']} ({major}): {status} the average age")
+                print(
+                    f"{student['nombre']} {student['apellido']} ({major}): {status} the average age")
             print()
         elif option == "7":
             age_ranges = {'18-25': 0, '26-35': 0, 'over 35': 0}
@@ -122,15 +132,19 @@ def generate_report(data):
                     city_majors[city].add(major)
                 else:
                     city_majors[city] = {major}
-            city_max_majors = max(city_majors, key=lambda x: len(city_majors[x]))
+            city_max_majors = max(
+                city_majors, key=lambda x: len(
+                    city_majors[x]))
             print("City with the highest variety of majors:")
-            print(f"{city_max_majors}: {', '.join(city_majors[city_max_majors])}")
+            print(
+                f"{city_max_majors}: {', '.join(city_majors[city_max_majors])}")
             print()
         elif option == "9":
             print("Exiting the program...")
             break
         else:
             raise ValueError("Invalid option. Please enter a valid option.\n")
+
 
 def generate_students_report(students, file_name):
     """
@@ -144,10 +158,17 @@ def generate_students_report(students, file_name):
         None
     """
     with open(file_name, 'w', newline='') as csv_file:
-        fieldnames = ['nombre', 'apellido', 'ciudad', 'pais', 'edad', 'carrera']
+        fieldnames = [
+            'nombre',
+            'apellido',
+            'ciudad',
+            'pais',
+            'edad',
+            'carrera']
         csv_writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
         csv_writer.writeheader()
         csv_writer.writerows(students)
+
 
 # Load the data from the CSV file
 data = load_data()
