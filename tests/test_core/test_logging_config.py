@@ -20,7 +20,7 @@ def test_create_logs_folder() -> None:
     :return: None
     :rtype: NoneType
     """
-    logs_folder_path: str = _create_logs_folder()
+    logs_folder_path: Path = _create_logs_folder()
     assert os.path.exists(logs_folder_path)
     assert os.path.basename(logs_folder_path) == 'logs'
 

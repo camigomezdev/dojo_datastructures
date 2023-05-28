@@ -1,3 +1,3 @@
 """
-Package tests.test reports initialization.
+Package tests.test_reports initialization.
 """

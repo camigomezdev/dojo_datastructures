@@ -29,34 +29,39 @@ The exercise aims to reinforce the use and combination of these techniques to ef
 1. **Fork the Project:** First, create your own copy of this project repository by "forking" it on GitHub. If you're not familiar with forking, you can learn more about it [here](https://docs.github.com/en/github/getting-started-with-github/fork-a-repo).
 
 2. Clone the **repository**
-    ```
-    git clone https://github.com/jpcadena/dojo_datastructures.git
-    ```
+
+   ```
+   git clone https://github.com/jpcadena/dojo_datastructures.git
+   ```
 
 3. Change the directory to the **root project**
-    ```
-    cd dojo_datastructures
-    ```
 
-4. Create a **virtual environment** named *venv*
-    ```
-    python3 -m venv venv
-    ```
+   ```
+   cd dojo_datastructures
+   ```
+
+4. Create a **virtual environment** named _venv_
+
+   ```
+   python3 -m venv venv
+   ```
 
 5. Activate the **environment** on Windows
-    ```
-    .\venv\Scripts\activate
-    ```
+
+   ```
+   .\venv\Scripts\activate
+   ```
 
    Or on Unix/Mac OS X
-    ```
-    source venv/bin/activate
-    ```
+
+   ```
+   source venv/bin/activate
+   ```
 
 6. Install the required packages using PIP
-    ```
-    pip install -r requirements.txt
-    ```
+   ```
+   pip install -r requirements.txt
+   ```
 
 ## Exercise
 
@@ -67,6 +72,7 @@ The tasks to be implemented are as follows:
 1. Read the CSV file and load the data into a suitable data structure.
 
 2. Implement functions to query and generate reports based on user input. These functions should handle the following queries:
+
    - Get all students belonging to a given city.
    - Get all students living in a given country.
    - Get all students within a given age range.
@@ -109,4 +115,3 @@ After completing the exercise, make sure to document your code, add comments, an
 - [Iterators and Iterables](https://realpython.com/python-iterators/)
 - [Generators](https://realpython.com/introduction-to-python-generators/)
 - [Coroutines](https://realpython.com/async-io-python/)
-

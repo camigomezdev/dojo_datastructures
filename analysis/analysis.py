@@ -21,10 +21,8 @@ def career_above_below_avg(students: list[dict[str, Any]]) -> dict[str, str]:
     career_averages: dict[str, float] = average_by_group(
         students, "carrera", "edad"
     )
-    return {
-        student["nombre"]: "above" if
-        student["edad"] > career_averages[student["carrera"]] else "below"
-        for student in students
+    return {student["nombre"]: "above" if student["edad"] > career_averages.get(
+        student["carrera"], 0) else "below" for student in students
     }
 
 

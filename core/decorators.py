@@ -12,8 +12,7 @@ logger: logging.Logger = logging.getLogger(__name__)
 
 def with_logging(func: Callable[..., Any]) -> Callable[..., Any]:
     """
-    This decorator logs when a function starts and finishes its
-     execution.
+    A decorator that logs the start and end of a function's execution.
     :param func: The function to be decorated
     :type func: Callable
     :return: The decorated function that logs its call

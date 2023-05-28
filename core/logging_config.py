@@ -4,8 +4,8 @@ It provides console, file, and mail logging capabilities based on the
  provided settings.
 """
 import logging
-import os
 from datetime import datetime
+from pathlib import Path
 
 from processing.utils import PROJECT_NAME
 
@@ -25,18 +25,17 @@ def _setup_console_handler(logger: logging.Logger, log_level: int) -> None:
     logger.addHandler(handler)
 
 
-def _create_logs_folder() -> str:
+def _create_logs_folder() -> Path:
     """
     Create a logs folder if it doesn't already exist
     :return: The path to the logs folder
-    :rtype: str
+    :rtype: Path
     """
-    project_root: str = os.path.dirname(os.path.abspath(__file__))
-    while os.path.basename(project_root) != PROJECT_NAME:
-        project_root = os.path.dirname(project_root)
-    logs_folder_path: str = f"{project_root}/logs"
-    if not os.path.exists(logs_folder_path):
-        os.makedirs(logs_folder_path, exist_ok=True)
+    project_root: Path = Path(__file__).resolve().parent
+    while project_root.name != PROJECT_NAME:
+        project_root = project_root.parent
+    logs_folder_path: Path = project_root / "logs"
+    logs_folder_path.mkdir(parents=True, exist_ok=True)
     return logs_folder_path
 
 
@@ -87,8 +86,8 @@ def _setup_file_handler(
     :return: None
     :rtype: NoneType
     """
-    logs_folder_path = _create_logs_folder()
-    log_filename = _build_log_filename()
+    logs_folder_path: Path = _create_logs_folder()
+    log_filename: str = _build_log_filename()
     filename_path: str = f"{logs_folder_path}/{log_filename}"
     file_handler = _configure_file_handler(filename_path, log_level)
     logger.addHandler(file_handler)

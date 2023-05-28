@@ -6,7 +6,7 @@ from typing import Any
 
 from _pytest.monkeypatch import MonkeyPatch
 
-from reports.utils import print_menu, print_submenu
+from reports.utils import get_user_choice_from_submenu, print_menu
 
 
 def test_print_menu(captured_data: Any) -> None:
@@ -49,6 +49,6 @@ def test_print_submenu(monkeypatch: MonkeyPatch) -> None:
 
     prompt: str = "Select a city:"
     values: list[str] = ["New York", "Los Angeles", "Chicago"]
-    result: str = print_submenu(prompt, values)
+    result: str = get_user_choice_from_submenu(prompt, values)
 
     assert result == "2"

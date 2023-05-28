@@ -8,15 +8,19 @@ from typing import Any
 from core import logging_config
 from core.decorators import with_logging
 from processing.student import Student
-from reports.report_generator import (
+from reports.average_reports import (
     generate_above_below_avg_report,
-    generate_age_group_report,
-    generate_age_report,
     generate_career_average_report,
+)
+from reports.group_reports import (
+    generate_age_group_report,
     generate_cities_report,
+)
+from reports.misc_reports import generate_most_career_city_report
+from reports.submenu_reports import (
+    generate_age_report,
     generate_city_report,
     generate_country_report,
-    generate_most_career_city_report,
 )
 from reports.utils import print_menu
 

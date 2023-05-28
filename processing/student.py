@@ -41,6 +41,7 @@ class Student:
             with open(file_path, "r", encoding=ENCODING) as file:
                 reader = csv.DictReader(file)
                 student: dict[str, Any]
+                errors: list[str] = []
                 for student in reader:
                     try:
                         age: int = int(student["edad"])
@@ -48,11 +49,14 @@ class Student:
                             student["edad"] = age
                             students.append(student)
                         else:
-                            logger.error(VALID_AGE, age)
-                            raise ValidationError(VALID_AGE)
+                            error_message: str = f"{VALID_AGE}: {age}"
+                            logger.error(error_message)
+                            errors.append(error_message)
                     except ValueError as exc:
-                        logger.error(NOT_NUMBER)
-                        raise ValidationError(NOT_NUMBER) from exc
+                        logger.error(NOT_NUMBER, exc)
+                        errors.append(NOT_NUMBER)
+            if errors:
+                raise ValidationError(" | ".join(errors))
         except FileNotFoundError:
             logger.error("Data file not found at %s. Please check the"
                          " location of your data file.", file_path)

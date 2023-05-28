@@ -68,8 +68,9 @@ def average_by_group(
     """
     groups: dict[Any, list[dict[str, Any]]] = group_by(students, group_key)
     return {
-        group: sum(student[average_key] for student in students) / len(students)
-        for group, students in groups.items()
+        group: sum(
+            student[average_key] for student in group_students
+        ) / len(group_students) for group, group_students in groups.items()
     }
 
 

@@ -8,17 +8,7 @@ from analysis.analysis import (
     city_with_most_careers,
     split_into_age_groups,
 )
-
-students: list[dict[str, Any]] = [
-    {"nombre": "John", "edad": 22, "carrera": "Computer Engineering",
-     "ciudad": "New York"},
-    {"nombre": "Emily", "edad": 25, "carrera": "Psychology",
-     "ciudad": "Los Angeles"},
-    {"nombre": "David", "edad": 30, "carrera": "Medicine",
-     "ciudad": "Chicago"},
-    {"nombre": "Sophie", "edad": 28, "carrera": "Art History",
-     "ciudad": "Chicago"},
-]
+from tests.test_processing.test_utils import students
 
 
 def test_career_above_below_avg() -> None:

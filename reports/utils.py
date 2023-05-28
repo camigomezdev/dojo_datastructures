@@ -24,7 +24,7 @@ def print_menu() -> None:
     print("0. Exit")
 
 
-def print_submenu(prompt: str, values: list[str]) -> str:
+def get_user_choice_from_submenu(prompt: str, values: list[str]) -> str:
     """
     Prints a submenu with the given prompt and values, and returns the
      user's selection.

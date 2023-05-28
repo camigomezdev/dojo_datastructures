@@ -118,3 +118,31 @@ def test_load_data_non_numeric_age(tmp_path: Path) -> None:
         student.load_data()
 
     assert str(exc_info.value) == NOT_NUMBER
+
+
+def test_load_data_file_not_found() -> None:
+    """
+    Test case for load_data method when the CSV file does not exist.
+    :return: None
+    :rtype: NoneType
+    """
+    student: Student = Student("non_existent_file.csv")
+
+    with pytest.raises(FileNotFoundError):
+        student.load_data()
+
+
+def test_load_data_empty_csv(tmp_path: Path) -> None:
+    """
+    Test case for load_data method with an empty CSV file.
+    :param tmp_path: The path to the file to load
+    :type tmp_path: Path
+    :return: None
+    :rtype: NoneType
+    """
+    csv_file: Path = tmp_path / "test_data.csv"
+    csv_file.write_text("nombre,apellido,ciudad,pais,edad,carrera\n")
+    student: Student = Student(str(csv_file))
+    loaded_data: list[dict[str, Any]] = student.load_data()
+
+    assert len(loaded_data) == 0
