@@ -1,6 +1,7 @@
 """ Funciones para obtener datos de estudiantes """
 
 import csv
+import os
 from iterador_promedio_edades import IteradorPromedioEdades
 from iterable_ciudades import IterableCiudades
 from async_iterador_estadisticas_edades import AsyncIteradorEstadisticasEdades
@@ -10,13 +11,16 @@ class Estudiantes:
     """ Definición de la clases Estudiantes."""
 
     def __init__(self, nombre_csv):
-        """ Guarda los estudiantes en una lista "_lista"."""
+        """ Guarda los estudiantes en una lista "_lista" y crea el directorio
+            'Reportes'"""
 
         self._lista = []
         with open(nombre_csv) as archivo_csv:
             lector_csv = csv.DictReader(archivo_csv, delimiter=',')
             for linea in lector_csv:
                 self._lista.append(linea)
+        if not os.path.exists("Reportes"):
+            os.makedirs("Reportes")
 
     def generador_ciudades(self):
         """Generador que regresa las ciudades una a una con su índice"""
@@ -54,7 +58,7 @@ del 1 al {len(lista_ciudades)}: ")
 guardados en rchivo: 'Estudiantes_por_ciudad_\
 ({lista_ciudades[int(ciudad_index) - 1]}).csv'.")
         columnas = ['nombre', 'apellido', 'ciudad', 'pais', 'edad', 'carrera']
-        with open(f"Estudiantes_por_ciudad_\
+        with open(f"Reportes/Estudiantes_por_ciudad_\
 ({lista_ciudades[int(ciudad_index) - 1]}).csv", mode='w') as archivo:
             escritor = csv.DictWriter(archivo, delimiter=',',
                                       fieldnames=columnas)
@@ -82,8 +86,8 @@ del 1 al {len(paises)}: ")
         print(f"\nEstudiantes en {paises[int(pais_index) - 1]} guardados en\
 archivo: 'Estudiantes_por_país_({paises[int(pais_index) - 1]}).csv'.")
         columnas = ['nombre', 'apellido', 'ciudad', 'pais', 'edad', 'carrera']
-        with open(f"Estudiantes_por_país_({paises[int(pais_index) - 1]})\
-.csv", mode='w') as archivo:
+        with open(f"Reportes/Estudiantes_por_país_\
+({paises[int(pais_index) - 1]}).csv", mode='w') as archivo:
             escritor = csv.DictWriter(archivo, delimiter=',',
                                       fieldnames=columnas)
             escritor.writeheader()
@@ -97,16 +101,16 @@ archivo: 'Estudiantes_por_país_({paises[int(pais_index) - 1]}).csv'.")
         edad_min = ""
         # validar que edad mínima elegida esté dentro del rango
         while not edad_min.isnumeric()\
-                or not int(edad_min) >= min(edades)\
-                or not int(edad_min) - 1 <= max(edades):
+                or int(edad_min) < min(edades)\
+                or int(edad_min) - 1 > max(edades):
             edad_min = input(f"Proporciona una edad MÍNIMA dentro del\
  rango {min(edades)}-{max(edades)}: ")
         edad_min = int(edad_min)
         edad_max = ""
         # validar que edad máxima elegida esté dentro del rango
         while not edad_max.isnumeric()\
-                or not int(edad_max) >= edad_min\
-                or not int(edad_max) - 1 <= max(edades):
+                or int(edad_max) < edad_min\
+                or int(edad_max) - 1 > max(edades):
             edad_max = input(f"Proporciona una edad MÁXIMA dentro del\
  rango {edad_min}-{max(edades)}: ")
         edad_max = int(edad_max)
@@ -119,8 +123,8 @@ archivo: 'Estudiantes_por_país_({paises[int(pais_index) - 1]}).csv'.")
         print(f"\nEstudiantes en rango de edad {edad_min}-{edad_max} guardados\
  en archivo: 'Estudiantes_por_rango_de_edad({edad_min}-{edad_max})'.csv")
         columnas = ['nombre', 'apellido', 'ciudad', 'pais', 'edad', 'carrera']
-        with open(f"Estudiantes_por_rango_de_edad({edad_min}-{edad_max})\
-.csv", mode='w') as archivo:
+        with open(f"Reportes/Estudiantes_por_rango_de_edad\
+({edad_min}-{edad_max}).csv", mode='w') as archivo:
             escritor = csv.DictWriter(archivo, delimiter=',',
                                       fieldnames=columnas)
             escritor.writeheader()
@@ -135,7 +139,7 @@ archivo: 'Estudiantes_por_país_({paises[int(pais_index) - 1]}).csv'.")
         print("\nCiudades de residencia guardados en archivo: \
 'Ciudades_de_residencia.csv'.")
         columnas = ['ciudad']
-        with open("Ciudades_de_residencia.csv", mode='w') as archivo:
+        with open("Reportes/Ciudades_de_residencia.csv", mode='w') as archivo:
             escritor = csv.DictWriter(archivo, delimiter=',',
                                       fieldnames=columnas)
             escritor.writeheader()
@@ -155,7 +159,8 @@ archivo: 'Estudiantes_por_país_({paises[int(pais_index) - 1]}).csv'.")
             print("\nEdad promedio por carrera guardado en archivo: \
 'Edad_promedio_por_carrera.csv'.")
             columnas = ['carrera', 'edad_promedio']
-            with open("Edad_promedio_por_carrera.csv", mode='w') as archivo:
+            with open("Reportes/Edad_promedio_por_carrera.csv",
+                      mode='w') as archivo:
                 escritor = csv.DictWriter(archivo, delimiter=',',
                                           fieldnames=columnas)
                 escritor.writeheader()
@@ -184,7 +189,7 @@ archivo: 'Estudiantes_por_país_({paises[int(pais_index) - 1]}).csv'.")
 guardado en archivo: 'Estudiantes_arriba_debajo_edad_promedio.csv'.")
         columnas = ['carrera', 'nombre', 'apellido',
                     'arriba_debajo_promedio']
-        with open("Estudiantes_arriba_debajo\
+        with open("Reportes/Estudiantes_arriba_debajo\
 _edad_promedio.csv", mode='w') as archivo:
             escritor = csv.DictWriter(archivo, delimiter=',',
                                       fieldnames=columnas)
@@ -217,7 +222,8 @@ _edad_promedio.csv", mode='w') as archivo:
 'Estudiantes_por_rango_de_edad.csv'.")
         columnas = ['rango_edad', 'nombre', 'apellido',
                     'ciudad', 'pais', 'edad']
-        with open("Estudiantes_por_rango_de_edad.csv", mode='w') as archivo:
+        with open("Reportes/Estudiantes_por_rango_de_edad.csv",
+                  mode='w') as archivo:
             escritor = csv.DictWriter(archivo, delimiter=',',
                                       fieldnames=columnas)
             escritor.writeheader()
@@ -254,7 +260,7 @@ _edad_promedio.csv", mode='w') as archivo:
         print("\nCiudad(es) con mayor varidad de carreras guardado en \
 archivo: 'Ciudad(es)_con_mayor_variedad_de_carreras.csv'.")
         columnas = ['ciudad', 'num_carreras']
-        with open("Ciudad(es)_con_mayor_variedad\
+        with open("Reportes/Ciudad(es)_con_mayor_variedad\
 _de_carreras.csv", mode='w') as archivo:
             escritor = csv.DictWriter(archivo, delimiter=',',
                                       fieldnames=columnas)
@@ -290,7 +296,7 @@ _de_carreras.csv", mode='w') as archivo:
         columnas = ['carrera', 'media_edad', 'mediana_edad', 'moda_edad',
                     'min_edad', 'max_edad', 'desviacion_estandar_muestral',
                     'desviacion_estandar_poblacional']
-        with open("Estadisticas_de_edades\
+        with open("Reportes/Estadisticas_de_edades\
 _por_carrera.csv", mode='w') as archivo:
             escritor = csv.DictWriter(archivo, delimiter=',',
                                       fieldnames=columnas)

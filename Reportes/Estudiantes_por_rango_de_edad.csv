@@ -1,0 +1,41 @@
+rango_edad,nombre,apellido,ciudad,pais,edad
+18-25,John,Smith,Ciudad de México,México,22
+18-25,Emily,Johnson,New York,United States,25
+18-25,Daniel,Brown,Lima,Peru,23
+18-25,Olivia,Moore,Ciudad de México,México,24
+18-25,Liam,Taylor,Lima,Peru,21
+18-25,Ava,Thomas,Bogotá,Colombia,19
+18-25,Mia,Hall,New York,United States,20
+18-25,Ethan,Lee,Lima,Peru,23
+18-25,Lucas,Harris,Bogotá,Colombia,24
+18-25,Max,Young,Buenos Aires,Argentina,22
+18-25,Emma,Scott,Barcelona,Spain,25
+18-25,Jacob,Walker,Ciudad de México,México,23
+18-25,Ava,Hall,New York,United States,21
+18-25,Isabella,Hill,Barcelona,Spain,24
+18-25,Mateo,Jackson,Medellín,Colombia,19
+18-25,Olivia,Moore,Barcelona,Spain,23
+18-25,Isabella,Anderson,New York,United States,24
+18-25,James,Lee,Medellín,Colombia,21
+18-25,Sophia,Clark,Barcelona,Spain,22
+26-35,David,Williams,Medellín,Colombia,30
+26-35,Sophie,Jones,Bogotá,Colombia,28
+26-35,Benjamin,Miller,Barcelona,Spain,26
+26-35,Noah,Wilson,New York,United States,27
+26-35,Isabella,Anderson,Medellín,Colombia,31
+26-35,Sophia,White,Ciudad de México,México,26
+26-35,Alexander,Martin,New York,United States,29
+26-35,Natalie,Lopez,Medellín,Colombia,32
+26-35,Chloe,Allen,Lima,Peru,27
+26-35,Sophia,Hernandez,Lima,Peru,28
+26-35,Logan,Lewis,Bogotá,Colombia,26
+26-35,Elijah,Green,Ciudad de México,México,27
+26-35,Sofia,Clark,Lima,Peru,31
+26-35,Liam,Taylor,Bogotá,Colombia,29
+26-35,Noah,Wilson,Ciudad de México,México,26
+26-35,Mia,Hall,Lima,Peru,30
+>35,Emma,Davis,Buenos Aires,Argentina,39
+>35,James,Clark,Barcelona,Spain,50
+>35,Daniel,Rodriguez,Medellín,Colombia,40
+>35,Emily,Turner,New York,United States,42
+>35,Ethan,Miller,Bogotá,Colombia,38
