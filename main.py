@@ -1,5 +1,5 @@
 """
-Dojo Estructuras de datos
+Dojo Estructuras de datos avanzados
 """
 
 import sys

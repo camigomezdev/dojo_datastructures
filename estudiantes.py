@@ -1,4 +1,4 @@
-""" Funciones para obtener datos de estudiantes."""
+""" Funciones para obtener datos de estudiantes """
 
 import csv
 from iterador_promedio_edades import IteradorPromedioEdades

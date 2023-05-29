@@ -1,7 +1,7 @@
 """ Iterador asíncrono que regresa la media, mediana, moda, max, min,
     desviación estándar muestral y poblacional de las edades por carrera
     leyendo un diccionario con el nombre de cada carrera como llave
-    y una lista con las edades por carrera como valor"""
+    y una lista con las edades por carrera como valor """
 
 import asyncio
 

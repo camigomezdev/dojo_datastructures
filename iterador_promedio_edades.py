@@ -4,7 +4,7 @@
 
 
 class IteradorPromedioEdades:
-    """Definición de la clase Iterador Promedio"""
+    """ Definición de la clase Iterador Promedio """
 
     def __init__(self, diccionario):
         self._dic = diccionario

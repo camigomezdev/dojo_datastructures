@@ -1,4 +1,4 @@
-""" Lista iterable para ciudades """
+""" Lista iterable para ciudades"""
 
 
 class IterableCiudades:
