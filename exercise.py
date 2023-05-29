@@ -186,12 +186,6 @@ class CSVParser:
                 duplicates = set([city for city in cities if cities.count(city) > 1])
                 careers = [obj["carrera"] for obj in self.data]
 
-                # for obj in self.data:
-                #     if obj["ciudad"] not in cities_with_most_careers:
-                #         cities_with_most_careers[obj["ciudad"]] = [obj["carrera"]]
-                #     else:
-                #         cities_with_most_careers[obj["ciudad"]].append(obj["carrera"])
-
                 [
                     cities_with_most_careers.__setitem__(
                         obj["ciudad"], [obj["carrera"]]
