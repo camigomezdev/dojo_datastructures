@@ -22,14 +22,15 @@ tes.")
         print("6) Estudiantes arriba o debajo del promedio de edad.")
         print("7) Estudiantes por rangos de edad (18-25, 26-35, mayores de \
 35).")
-        print("8) Ciudad con la mayor variedad de carreras universitarias \
+        print("8) Ciudad(es) con la mayor variedad de carreras universitarias \
 entre los estudiantes.")
         print("9) Estadísticas de edades por carrera.")
+        print("10) Estadísticas de dedades globales.")
         print("q) Salir")
         opcion = ""
         while opcion != "q" and (not opcion.isdecimal()
-                                 or int(opcion) > 9 or int(opcion) < 1):
-            opcion = input("\nElige una opción del 1 al 9: ")
+                                 or int(opcion) > 10 or int(opcion) < 1):
+            opcion = input("\nElige una opción del 1 al 10: ")
         match opcion:
             case "1": es.por_ciudad()
             case "2": es.por_pais()
@@ -40,5 +41,6 @@ entre los estudiantes.")
             case "7": es.por_rangos_de_edad()
             case "8": es.ciudad_max_carreras()
             case "9": asyncio.run(es.async_estadisticas_edad_por_carrera())
+            case "10": asyncio.run(es.async_estadisticas_edad_global())
         if opcion != "q":
-            input("\nPresiona Enter para regresar al menú...")
+            input("\nPresiona Enter para regresar al menú...\n")

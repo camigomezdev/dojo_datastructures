@@ -35,7 +35,7 @@ class Estudiantes:
 
         ciudades = self.generador_ciudades()
         lista_ciudades = []
-
+        print("")
         while True:
             try:
                 indice_ciudad, ciudad = next(ciudades)
@@ -48,7 +48,7 @@ class Estudiantes:
         while not ciudad_index.isdecimal()\
                 or int(ciudad_index) > len(lista_ciudades)\
                 or int(ciudad_index) - 1 < 0:
-            ciudad_index = input(f"Elige una ciudad \
+            ciudad_index = input(f"\nElige una ciudad \
 del 1 al {len(lista_ciudades)}: ")
         estudiantes_por_ciudad = [estudiante for estudiante
                                   in self._lista
@@ -70,6 +70,7 @@ guardados en rchivo: 'Estudiantes_por_ciudad_\
         """ Obtiene estudiantes por país dado."""
 
         paises = list({pais['pais'] for pais in self._lista})
+        print("")
         for index, pais in enumerate(paises):
             print(f"{index+1}) {pais}")
         pais_index = ""
@@ -77,7 +78,7 @@ guardados en rchivo: 'Estudiantes_por_ciudad_\
         while not pais_index.isdecimal()\
                 or int(pais_index) > len(paises)\
                 or int(pais_index) - 1 < 0:
-            pais_index = input(f"Elige un país \
+            pais_index = input(f"\nElige un país \
 del 1 al {len(paises)}: ")
         estudiantes_por_pais = [estudiante for estudiante
                                 in self._lista
@@ -103,7 +104,7 @@ archivo: 'Estudiantes_por_país_({paises[int(pais_index) - 1]}).csv'.")
         while not edad_min.isnumeric()\
                 or int(edad_min) < min(edades)\
                 or int(edad_min) - 1 > max(edades):
-            edad_min = input(f"Proporciona una edad MÍNIMA dentro del\
+            edad_min = input(f"\nProporciona una edad MÍNIMA dentro del\
  rango {min(edades)}-{max(edades)}: ")
         edad_min = int(edad_min)
         edad_max = ""
@@ -111,10 +112,9 @@ archivo: 'Estudiantes_por_país_({paises[int(pais_index) - 1]}).csv'.")
         while not edad_max.isnumeric()\
                 or int(edad_max) < edad_min\
                 or int(edad_max) - 1 > max(edades):
-            edad_max = input(f"Proporciona una edad MÁXIMA dentro del\
+            edad_max = input(f"\nProporciona una edad MÁXIMA dentro del\
  rango {edad_min}-{max(edades)}: ")
         edad_max = int(edad_max)
-        print(f"Edad min: {edad_min} Edad max: {edad_max}")
         estudiantes_por_rango_de_edad = [estudiante for estudiante
                                          in self._lista
                                          if int(estudiante['edad']) >= edad_min
@@ -298,6 +298,61 @@ _de_carreras.csv", mode='w') as archivo:
                     'desviacion_estandar_poblacional']
         with open("Reportes/Estadisticas_de_edades\
 _por_carrera.csv", mode='w') as archivo:
+            escritor = csv.DictWriter(archivo, delimiter=',',
+                                      fieldnames=columnas)
+            escritor.writeheader()
+            for carrera in estadisticas_edades_por_carrera:
+                escritor.writerow({'carrera': carrera,
+                                  'media_edad':
+                                   estadisticas_edades_por_carrera
+                                   [carrera]['media'],
+                                   'mediana_edad':
+                                   estadisticas_edades_por_carrera
+                                   [carrera]['mediana'],
+                                   'moda_edad':
+                                   estadisticas_edades_por_carrera
+                                   [carrera]['moda'],
+                                   'min_edad':
+                                   estadisticas_edades_por_carrera
+                                   [carrera]['min'],
+                                   'max_edad':
+                                   estadisticas_edades_por_carrera
+                                   [carrera]['max'],
+                                   'desviacion_estandar_muestral':
+                                   estadisticas_edades_por_carrera
+                                   [carrera]['desv_std_muestral'],
+                                   'desviacion_estandar_poblacional':
+                                   estadisticas_edades_por_carrera
+                                   [carrera]
+                                   ['desv_std_poblacional']})
+
+    async def async_estadisticas_edad_global(self):
+        """ Obtiene estadisticas de todas las edades de forma asíncrona. """
+
+        todas = {"Todas": [int(estudiante['edad']) for estudiante
+                           in self._lista]}
+        estadisticas_edades_por_carrera = {carrera: {"media": media,
+                                                     "mediana": mediana,
+                                                     "moda": moda,
+                                                     "min": min_edad,
+                                                     "max": max_edad,
+                                                     "desv_std_muestral":
+                                                     desv_std_muestral,
+                                                     "desv_std_poblacional":
+                                                     desv_std_poblacional}
+                                           async for carrera, media, mediana,
+                                           moda, min_edad, max_edad,
+                                           desv_std_muestral,
+                                           desv_std_poblacional
+                                           in AsyncIteradorEstadisticasEdades(
+                                               todas)}
+        print("\nEstadisticas de edades global guardado en archivo: \
+'Estadisticas_de_edades_global.csv'.")
+        columnas = ['carrera', 'media_edad', 'mediana_edad', 'moda_edad',
+                    'min_edad', 'max_edad', 'desviacion_estandar_muestral',
+                    'desviacion_estandar_poblacional']
+        with open("Reportes/Estadisticas_de_edades\
+_global.csv", mode='w') as archivo:
             escritor = csv.DictWriter(archivo, delimiter=',',
                                       fieldnames=columnas)
             escritor.writeheader()
