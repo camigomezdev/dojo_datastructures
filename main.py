@@ -2,6 +2,15 @@ import csv
 
 
 def read_csv(url_file='data.csv'):
+    """
+    Read a CSV file and return its contents as a dictionary.
+
+    Args:
+        url_file (str): URL or path to the CSV file. Default is 'data.csv'.
+
+    Returns:
+        dict: A dictionary containing the CSV data, with row numbers as keys and row data as values.
+    """
     csv_data = {}
     with open(url_file) as file:
         csv_reader = csv.DictReader(file, delimiter=',')
@@ -14,6 +23,16 @@ def read_csv(url_file='data.csv'):
 
 
 def get_users_between_age_range(min_age, max_age):
+    """
+    Get a list of users within a specified age range.
+
+    Args:
+        min_age (int): Minimum age of users to include.
+        max_age (int): Maximum age of users to include.
+
+    Returns:
+        list: A list of user records that fall within the specified age range.
+    """
     if min_age > 0 and max_age > 0:
         csv_data = read_csv()
         return [
@@ -25,16 +44,37 @@ def get_users_between_age_range(min_age, max_age):
 
 
 def get_distinct_countries():
+    """
+    Get a set of distinct countries from the CSV data.
+
+    Returns:
+        set: A set of distinct country names.
+    """
     csv_data = read_csv()
     return {row['pais'] for row in csv_data.values()}
 
 
 def get_distinct_cities():
+    """
+    Get a set of distinct cities from the CSV data.
+
+    Returns:
+        set: A set of distinct city names.
+    """
     csv_data = read_csv()
     return {row['ciudad'] for row in csv_data.values()}
 
 
 def get_users_by_country(country):
+    """
+    Get a list of users from a specific country.
+
+    Args:
+        country (str): Name of the country.
+
+    Returns:
+        list: A list of user records from the specified country.
+    """
     if does_this_country_exists(country):
         csv_data = read_csv()
         return [row for row in csv_data.values() if row['pais'] == country]
@@ -43,6 +83,15 @@ def get_users_by_country(country):
 
 
 def get_users_by_city(city):
+    """
+    Get a list of users from certain city
+
+    Args:
+        city (str): Name of the city.
+
+    Returns:
+        list: A list of user records from the specific city
+    """
     if does_this_city_exists(city):
         csv_data = read_csv()
         return [row for row in csv_data.values() if row['ciudad'] == city]
@@ -51,14 +100,38 @@ def get_users_by_city(city):
 
 
 def does_this_country_exists(country):
+    """
+    Check if a country exists in the CSV data.
+
+    Args:
+        country (str): Name of the country.
+
+    Returns:
+        bool: True if the country exists, False otherwise.
+    """
     return country in get_distinct_countries()
 
 
 def does_this_city_exists(city):
+    """
+    Check if a city exists in the CSV data.
+
+    Args:
+        city (str): Name of the city.
+
+    Returns:
+        bool: True if the city exists, False otherwise.
+    """
     return city in get_distinct_cities()
 
 
 def group_users_by_career():
+    """
+    Group users by their career.
+
+    Returns:
+        dict: A dictionary where the keys are career names and the values are lists of user records.
+    """
     csv_data = read_csv()
     final_data = {}
     for row in csv_data.values():
@@ -77,6 +150,12 @@ def print_r(iterable):
 
 
 def get_average_age_grouped_by_career():
+    """
+    Calculate the average age for each career.
+
+    Returns:
+        dict: A dictionary where the keys are career names and the values are the average ages as integers.
+    """
     grouped_users_by_career = group_users_by_career()
     average_age_by_career = {}
 
@@ -92,6 +171,16 @@ def get_average_age_grouped_by_career():
 
 
 def compare_age_by_career_average(age, career):
+    """
+    Compare the given age with the average age for a specific career.
+
+    Args:
+        age (str): Age to compare.
+        career (str): Name of the career.
+
+    Returns:
+        str: A string indicating the comparison result.
+    """
     average_age_grouped_by_career = int(
         get_average_age_grouped_by_career()[career]
     )
@@ -105,6 +194,9 @@ def compare_age_by_career_average(age, career):
 
 
 def list_users_with_age_comparison():
+    """
+    Print the list of users with their ages and a comparison to the average age of their respective career.
+    """
     csv_data = read_csv()
     for row in csv_data.values():
         print(
@@ -112,6 +204,12 @@ def list_users_with_age_comparison():
 
 
 def group_users_by_age_range():
+    """
+    Group users into age ranges.
+
+    Returns:
+        dict: A dictionary where the keys are age ranges and the values are lists of user records.
+    """
     age_ranges = [(18, 25), (26, 35)]
     age_ranges_list = ["18-25", "26-35", "36+"]
     final_data = {}
@@ -133,6 +231,12 @@ def group_users_by_age_range():
 
 
 def group_careers_by_city():
+    """
+    Group careers by city.
+
+    Returns:
+        dict: A dictionary where the keys are city names and the values are lists of career names.
+    """
     csv_data = read_csv()
     cities = get_distinct_cities()
     final_data = {}
@@ -148,13 +252,21 @@ def group_careers_by_city():
 
 
 def city_with_most_careers():
+    """
+    Find the city(s) with the most number of careers.
+
+    Returns:
+        list: A list of city names with the most number of careers.
+    """
     final_data = []
 
     grouped_careers_by_city = group_careers_by_city()
     max_careers_per_city = len(max(grouped_careers_by_city.values()))
+    KEYS_INDEX = 1
+    VALUES_INDEX = 0
     for city in grouped_careers_by_city.items():
-        if len(city[1]) == max_careers_per_city:
-            final_data.append(city[0])
+        if len(city[KEYS_INDEX]) == max_careers_per_city:
+            final_data.append(city[VALUES_INDEX])
 
     return final_data
 
