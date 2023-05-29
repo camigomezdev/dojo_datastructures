@@ -1,0 +1,41 @@
+nombre,apellido,edad,carrera,edad_promedio,status
+John,Smith,22,Computer Engineering,25.125,menor
+Emily,Johnson,25,Psychology,25.25,menor
+David,Williams,30,Medicine,30.25,menor
+Sophie,Jones,28,Art History,26.0,mayor
+Daniel,Brown,23,Education,29.25,menor
+Emma,Davis,39,Computer Engineering,25.125,mayor
+Benjamin,Miller,26,Psychology,25.25,mayor
+Olivia,Moore,24,Medicine,30.25,menor
+Noah,Wilson,27,Art History,26.0,mayor
+Isabella,Anderson,31,Education,29.25,mayor
+Liam,Taylor,21,Computer Engineering,25.125,menor
+Ava,Thomas,19,Psychology,25.25,menor
+James,Clark,50,Medicine,30.25,mayor
+Mia,Hall,20,Art History,26.0,menor
+Ethan,Lee,23,Education,29.25,menor
+Sophia,White,26,Computer Engineering,25.125,mayor
+Alexander,Martin,29,Psychology,25.25,mayor
+Natalie,Lopez,32,Medicine,30.25,mayor
+Lucas,Harris,24,Art History,26.0,menor
+Chloe,Allen,27,Education,29.25,menor
+Max,Young,22,Computer Engineering,25.125,menor
+Emma,Scott,25,Psychology,25.25,menor
+Jacob,Walker,23,Medicine,30.25,menor
+Ava,Hall,21,Art History,26.0,menor
+Daniel,Rodriguez,40,Education,29.25,mayor
+Sophia,Hernandez,28,Computer Engineering,25.125,mayor
+Logan,Lewis,26,Psychology,25.25,mayor
+Isabella,Hill,24,Medicine,30.25,menor
+Elijah,Green,27,Art History,26.0,mayor
+Emily,Turner,42,Education,29.25,mayor
+Mateo,Jackson,19,Computer Engineering,25.125,menor
+Sofia,Clark,31,Psychology,25.25,mayor
+Liam,Taylor,29,Medicine,30.25,menor
+Olivia,Moore,23,Art History,26.0,menor
+Noah,Wilson,26,Education,29.25,menor
+Isabella,Anderson,24,Computer Engineering,25.125,menor
+James,Lee,21,Psychology,25.25,menor
+Mia,Hall,30,Medicine,30.25,menor
+Ethan,Miller,38,Art History,26.0,mayor
+Sophia,Clark,22,Education,29.25,menor
