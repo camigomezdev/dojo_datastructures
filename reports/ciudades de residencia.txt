@@ -1,0 +1,8 @@
+Las ciudades de residencia de los estudiantes son:
+-Barcelona
+-Bogotá
+-Buenos Aires
+-Ciudad de Mexico
+-Lima
+-Medellín
+-New York

@@ -1,0 +1,8 @@
+La cantidad de alumnos por ciudad es:
+Barcelona: 6
+Bogotá: 6
+Buenos Aires: 2
+Ciudad de Mexico: 6
+Lima: 7
+Medellín: 6
+New York: 7

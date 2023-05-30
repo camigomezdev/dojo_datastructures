@@ -1,0 +1,42 @@
+Alumnos encima o debajo del promedio de edad de la carrera:
+Medicine:
+Moore, Olivia: Mayor
+Clark, James: Menor
+Lopez, Natalie: Menor
+Walker, Jacob: Mayor
+Hill, Isabella: Mayor
+Taylor, Liam: Mayor
+Psychology:
+Miller, Benjamin: Menor
+Thomas, Ava: Mayor
+Martin, Alexander: Menor
+Lewis, Logan: Menor
+Clark, Sofia: Menor
+Lee, James: Mayor
+Education:
+Brown, Daniel: Mayor
+Anderson, Isabella: Menor
+Lee, Ethan: Mayor
+Allen, Chloe: Mayor
+Rodriguez, Daniel: Menor
+Turner, Emily: Menor
+Wilson, Noah: Mayor
+Clark, Sophia: Mayor
+Computer Engineering:
+Smith, John: Mayor
+Davis, Emma: Menor
+Taylor, Liam: Mayor
+White, Sophia: Menor
+Young, Max: Mayor
+Hernandez, Sophia: Menor
+Jackson, Mateo: Mayor
+Anderson, Isabella: Mayor
+Art History:
+Jones, Sophie: Menor
+Wilson, Noah: Menor
+Hall, Mia: Mayor
+Harris, Lucas: Mayor
+Hall, Ava: Mayor
+Green, Elijah: Menor
+Moore, Olivia: Mayor
+Miller, Ethan: Menor
