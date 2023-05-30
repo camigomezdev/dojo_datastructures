@@ -1,0 +1,6 @@
+El promedio de edad por carrera es:
+Art History: 26
+Computer Engineering: 25
+Education: 29
+Medicine: 30
+Psychology: 25

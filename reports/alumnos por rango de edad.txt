@@ -1,0 +1,44 @@
+Alumnos por rango de edad:
+Alumnos de 18 a 25 años:
+Smith, John
+Johnson, Emily
+Brown, Daniel
+Moore, Olivia
+Taylor, Liam
+Thomas, Ava
+Hall, Mia
+Lee, Ethan
+Harris, Lucas
+Young, Max
+Scott, Emma
+Walker, Jacob
+Hall, Ava
+Hill, Isabella
+Jackson, Mateo
+Moore, Olivia
+Anderson, Isabella
+Lee, James
+Clark, Sophia
+Alumnos de 26 a 35 años:
+Williams, David
+Jones, Sophie
+Miller, Benjamin
+Wilson, Noah
+Anderson, Isabella
+White, Sophia
+Martin, Alexander
+Lopez, Natalie
+Allen, Chloe
+Hernandez, Sophia
+Lewis, Logan
+Green, Elijah
+Clark, Sofia
+Taylor, Liam
+Wilson, Noah
+Hall, Mia
+Alumnos mayores a 35 años:
+Davis, Emma
+Clark, James
+Rodriguez, Daniel
+Turner, Emily
+Miller, Ethan

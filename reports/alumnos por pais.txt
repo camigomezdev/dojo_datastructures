@@ -1,0 +1,7 @@
+La cantidad de alumnos por pais es:
+Argentina: 2
+Colombia: 12
+Mexico: 6
+Peru: 7
+Spain: 6
+United States: 7

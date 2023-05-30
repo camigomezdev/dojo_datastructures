@@ -1,0 +1,8 @@
+Ciudades con más carreras:
+New York: 4
+Barcelona: 4
+Buenos Aires: 1
+Lima: 4
+Ciudad de Mexico: 4
+Medellín: 4
+Bogotá: 3
