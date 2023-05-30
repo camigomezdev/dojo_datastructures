@@ -1,3 +1,12 @@
+import csv
+
+def csv_to_dict():
+    with open('data.csv', mode='r') as csv_file:
+        csv_reader = csv.DictReader(csv_file)
+        return list(csv_reader)
+
+dict_csv = csv_to_dict()
+
 def get_all_students_by_city():
     pass
 
