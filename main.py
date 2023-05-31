@@ -25,7 +25,7 @@ tes.")
         print("8) Ciudad(es) con la mayor variedad de carreras universitarias \
 entre los estudiantes.")
         print("9) Estadísticas de edades por carrera.")
-        print("10) Estadísticas de dedades globales.")
+        print("10) Estadísticas de edades globales.")
         print("q) Salir")
         opcion = ""
         while opcion != "q" and (not opcion.isdecimal()
