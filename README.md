@@ -18,7 +18,7 @@ El archivo CSV proporcionado contiene información de estudiantes, incluyendo su
 	- Agrupa los estudiantes en diferentes rangos de edad (18-25, 26-35, mayores de 35).
 	- Identifica la ciudad que tienen la mayor variedad de carreras universitarias entre los estudiantes.
 
-Nota: Puedes agrega cualquier dato adicional que quieras al reporte.
+Nota: Puedes agregar cualquier dato adicional que quieras al reporte.
 
 Es importante utilizar las herramientas adecuadas de Python, como la biblioteca `csv`, para leer y manipular los datos del archivo CSV. Además, se deben aplicar las técnicas y conceptos mencionados para practicar y demostrar comprensión de los mismos.
 
