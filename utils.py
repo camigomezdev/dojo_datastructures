@@ -41,19 +41,42 @@ def get_all_students_by_age():
     students_by_age = [
         dict
         for dict in DICT_CSV
-        if  range_age_input[0] <= dict['edad'] <= range_age_input[1]
+        if range_age_input[0] <= dict['edad'] <= range_age_input[1]
     ]
     pprint(students_by_age)
 
 def get_all_hometowns():
-    cities_of_students = [
-        dict['ciudad']
-        for dict in DICT_CSV
-    ]
+    cities_of_students = []
+    for dict in DICT_CSV:
+        if dict['ciudad'] not in cities_of_students:
+            cities_of_students.append(dict['ciudad'])            
     pprint(cities_of_students)
 
+def get_careers():
+    careers_of_student = []
+    for dict in DICT_CSV:
+        if dict['carrera'] not in careers_of_student:
+            careers_of_student.append(dict['carrera'])
+    return careers_of_student
+
 def get_average_age_by_career():
-    pass
+    careers = get_careers()
+    averages_age = []
+    for career in careers:
+        count_std = 0
+        sum_age = 0
+        for dict in DICT_CSV:
+            if career == dict['carrera']:
+                sum_age += int(dict['edad'])
+                count_std +=1
+        averages_age.append(int(sum_age/count_std))
+
+    result = {}
+    for key,value in zip(careers,averages_age): 
+        if key not in result:
+            result[key]=value
+
+    pprint(result)
 
 def get_average_status_student_by_career():
     pass
