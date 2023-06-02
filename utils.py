@@ -26,7 +26,7 @@ def get_all_students_by_city():
     pprint(students_by_city)
 
 def get_all_students_by_country():
-    country_input = input(f'{Fore.BLUE}Ingrese la ciudad para su consulta: {Style.RESET_ALL}')
+    country_input = input(f'{Fore.BLUE}Ingrese el pais para su consulta: {Style.RESET_ALL}')
 
     students_by_country = [
         dict
@@ -36,10 +36,21 @@ def get_all_students_by_country():
     pprint(students_by_country)
 
 def get_all_students_by_age():
-    pass
+    range_age_input = input(f'{Fore.BLUE}Ingrese el rango de edad para su consuta (edad-edad): {Style.RESET_ALL}').split('-')
+
+    students_by_age = [
+        dict
+        for dict in DICT_CSV
+        if  range_age_input[0] <= dict['edad'] <= range_age_input[1]
+    ]
+    pprint(students_by_age)
 
 def get_all_hometowns():
-    pass
+    cities_of_students = [
+        dict['ciudad']
+        for dict in DICT_CSV
+    ]
+    pprint(cities_of_students)
 
 def get_average_age_by_career():
     pass
