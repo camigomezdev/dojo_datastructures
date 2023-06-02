@@ -17,19 +17,23 @@ def clean_string(sentence):
 
 def get_all_students_by_city():
     city_input = input(f'{Fore.BLUE}Ingrese la ciudad para su consulta: {Style.RESET_ALL}')
-    
-    students_by_city = []
-    count_students = 0
-    for dict in DICT_CSV:
-        if city_input.lower() == clean_string(dict['ciudad']):
-            students_by_city.append(dict)
-            count_students += 1
 
+    students_by_city = [
+        dict
+        for dict in DICT_CSV
+        if city_input.lower() == clean_string(dict['ciudad'])
+    ]
     pprint(students_by_city)
-    print(f'{Fore.GREEN}Cantidad de estudiantes en la ciudad {city_input}: {count_students}{Style.RESET_ALL}')
 
 def get_all_students_by_country():
-    pass
+    country_input = input(f'{Fore.BLUE}Ingrese la ciudad para su consulta: {Style.RESET_ALL}')
+
+    students_by_country = [
+        dict
+        for dict in DICT_CSV
+        if country_input.lower() == clean_string(dict['pais'])
+    ]
+    pprint(students_by_country)
 
 def get_all_students_by_age():
     pass
