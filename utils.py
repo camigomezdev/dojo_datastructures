@@ -113,15 +113,15 @@ def get_group_students_with_ranges_age():
 
 
 def get_the_most_city_with_careers():
-    city_result = (None,0)
+    city_result = (None, 0)
     cities = get_all_hometowns()
     for city in cities:
         careers_by_city = []
         for dict in DICT_CSV:
-            if dict['ciudad'] == city:
-                if dict['carrera'] not in careers_by_city:
-                    careers_by_city.append(dict['carrera'])
+            if dict["ciudad"] == city:
+                if dict["carrera"] not in careers_by_city:
+                    careers_by_city.append(dict["carrera"])
         if len(careers_by_city) >= city_result[1]:
-            city_result = (city,len(careers_by_city))
+            city_result = (city, len(careers_by_city))
 
     return city_result
