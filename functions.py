@@ -74,8 +74,50 @@ def estado_estudiante_promedio_edad(datos, carrera):
 
     for nombre, edad in zip(nombres, edades):
         if edad > promedio:
-            print(f"{nombre} ({edad}) esta por encima del promedio ({promedio}).")
+            print(f"{nombre} ({edad}) esta por encima del promedio de edad ({promedio}) de la carrera.")
         elif edad < promedio:
-            print(f"{nombre} ({edad}) esta por debajo del promedio ({promedio}).")
+            print(f"{nombre} ({edad}) esta por debajo del promedio de edad ({promedio}) de la carrera.")
         else:
-            print(f"{nombre} tiene la misma ({edad}) que el promedio ({promedio}).")
+            print(f"{nombre} tiene la misma ({edad}) que el promedio de edad ({promedio}) de la carrera.")
+
+
+def agrupar_estudiantes_por_rangos_de_edad(datos):
+
+    nombres = [dato['nombre'] for dato in datos]
+    edades = [int(dato['edad']) for dato in datos]
+
+    rangos_edad = {
+        '18-25': [],
+        '26-35': [],
+        'mayores de 35': []
+    }
+
+    for nombre, edad in zip(nombres, edades):
+        if 18 <= edad <= 25:
+            rangos_edad['18-25'].append(nombre)
+        elif 26 <= edad <= 35:
+            rangos_edad['26-35'].append(nombre)
+        else:
+            rangos_edad['mayores de 35'].append(nombre)
+
+    print(f"Estudiantes dentro del rango 18-25: {rangos_edad['18-25']}")
+    print(f"Estudiantes dentro del rango 26-55: {rangos_edad['26-35']}")
+    print(f"Estudiantes dentro del rango <35: {rangos_edad['mayores de 35']}")
+
+
+def mayor_variedad_carreras_por_ciudad(datos):
+
+    ciudades_carreras = {}
+
+    ciudades = [dato['ciudad'] for dato in datos]
+    carreras = [dato['carrera'] for dato in datos]
+
+    for ciudad, carrera in zip(ciudades, carreras):
+        if ciudad in ciudades_carreras:
+            ciudades_carreras[ciudad].append(carrera)
+        else:
+            ciudades_carreras[ciudad] = [carrera]
+
+    carreras_por_ciudad = {ciudad: len(set(carreras)) for ciudad, carreras in ciudades_carreras.items()}
+
+    print(carreras_por_ciudad)

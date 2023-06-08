@@ -1,4 +1,7 @@
-from functions import almacenar_datos, filtro_por_ciudad, filtro_por_pais, mostrar_datos_rango_edades, mostrar_todas_ciudades, promedio_de_edad_por_carrera, estado_estudiante_promedio_edad
+from functions import almacenar_datos, filtro_por_ciudad, filtro_por_pais
+from functions import mostrar_datos_rango_edades, mostrar_todas_ciudades
+from functions import promedio_de_edad_por_carrera, estado_estudiante_promedio_edad
+from functions import agrupar_estudiantes_por_rangos_de_edad, mayor_variedad_carreras_por_ciudad
 
 
 def mostrar_menu():
@@ -9,6 +12,8 @@ def mostrar_menu():
     print("4. Mostrar todas las ciudades")
     print("5. Mostrar la edad promedio por carrera")
     print("6. Mostrar si el estudiante es < o > de la edad promedio por carrera")
+    print("7. Mostrar estudiantes por rango de edad")
+    print("8. Mostrar ciudad con mayor variedad de carreraras")
     print("9. Salir")
 
 
@@ -37,6 +42,10 @@ while True:
     elif opcion == "6":
         carrera = (input("Ingrese la carrera deseada: "))
         estado_estudiante_promedio_edad(datos, carrera)
+    elif opcion == "7":
+        agrupar_estudiantes_por_rangos_de_edad(datos)
+    elif opcion == "8":
+        mayor_variedad_carreras_por_ciudad(datos)
     elif opcion == "9":
         print("¡Hasta luego!")
         break
