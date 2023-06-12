@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
 import csv
 import os
-from typing import List
 from ClassEstudiantes import Estudiantes
 
 opciones = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 option = 1
+
+ruta = ""
 
 
 with open('data.csv') as file:
@@ -34,12 +35,16 @@ with open('data.csv') as file:
             print(f"Las ciudades son: {estudiantes.get_ciudades()}")
             ciudad = input("Escriba una ciudad: ")
             print(estudiantes.get_estudiantes_por_ciudad(ciudad=ciudad))
-        
+            estudiantes.guardar_datos(
+                ruta=ruta, archivo="estudiantes_por_ciudad.txt", datos=estudiantes.get_estudiantes_por_ciudad(ciudad=ciudad))
+
         # Obtener todos los estudiantes que vivan en un país dado.
         elif option == 2:
             print(f"Los paises son: {estudiantes.get_paises()}")
             pais = input("Escriba un pais: ")
             print(estudiantes.get_estudiantes_por_pais(pais=pais))
+            estudiantes.guardar_datos(
+                ruta=ruta, archivo="estudiantes_por_pais.txt", datos=estudiantes.get_estudiantes_por_pais(pais=pais))
 
         # Obtener todos los estudiantes que estén dentro del rango de edades dado.
         elif option == 3:
@@ -47,11 +52,15 @@ with open('data.csv') as file:
             edad_final = int(input("Escriba un rango de edad final: "))
             print(
                 f"Estudiantes por el rango seleccionado son: \n{estudiantes.get_estudiantes_por_edad(edad_inicial=edad_inicial,edad_final=edad_final)}")
+            estudiantes.guardar_datos(
+                ruta=ruta, archivo="get_estudiantes_por_edad.txt", datos=estudiantes.get_estudiantes_por_edad(edad_inicial=edad_inicial, edad_final=edad_final))
 
         # Obtener todas las ciudades de residencia de los estudiantes.
         elif option == 4:
             print(
                 f"Las ciudades de residencia son: {estudiantes.get_ciudades()}")
+            estudiantes.guardar_datos_lista(
+                ruta=ruta, archivo="get_ciudades.txt", datos=estudiantes.get_ciudades())
 
         # Identificar la edad promedio por carrera.
         elif option == 5:
@@ -61,9 +70,22 @@ with open('data.csv') as file:
                 f" La edad promedio para la carrera {carrera} es: \n {estudiantes.get_edad_promedio_por_carrera(carrera=carrera)}")
 
         # Indicar por carrera si el estudiante está por encima o por debajo del promedio de edad.
+        elif option == 6:
+            print(f"Las carreras son: {estudiantes.get_carreras()}")
+            carrera = input("Selecciones una carrera: ")
+            print(f"{estudiantes.get_estudiantes_nivel_academico(carrera=carrera)}")
+            estudiantes.guardar_datos(
+                ruta=ruta, archivo="get_estudiantes_nivel_academico.txt", datos=estudiantes.get_estudiantes_nivel_academico(carrera=carrera))
 
         # Agrupa los estudiantes en diferentes rangos de edad (18-25, 26-35, mayores de 35).
-        
+        elif option == 7:
+            print(
+                f"Estudiantes por rago son:{[est for est in estudiantes.get_estudiantes_por_rangos()]}")
+            estudiantes.guardar_datos_lista(
+                ruta=ruta, archivo="get_estudiantes_por_rangos.txt", datos=estudiantes.get_estudiantes_por_rangos())
+
         # Identifica la ciudad que tienen la mayor variedad de carreras universitarias entre los estudiantes.
+        elif option == 8:
+            print(f"{estudiantes.get_ciudad_mayor_carrera()}")
         os.system('pause')
         os.system('cls')
